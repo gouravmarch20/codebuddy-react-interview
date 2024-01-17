@@ -30,7 +30,7 @@ export const FormOne = ({ data }) => {
       return false;
     } else if (!isValidPassword(password)) {
       setOnFormSubmit(true);
-      toast.error(`not a valid password`, {});
+      toast.error(`Password Must contain minimum 2 capital letters, 2 small letter, 2 numbers and 2 special characters.`, {});
       return false;
     } else {
       setOnFormSubmit(false);

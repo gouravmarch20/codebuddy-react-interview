@@ -30,7 +30,7 @@ export const FormTwo = ({}) => {
       return false;
     } else if (!isValidAddress(address)) {
       setOnFormSubmit(true);
-      toast.error(`not valid  address`, {});
+      toast.error(`Address length should be minimum 10 chars`, {});
       return false;
     } else {
       setOnFormSubmit(false);
