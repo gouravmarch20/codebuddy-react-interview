@@ -20,7 +20,7 @@ export const signUp = createAsyncThunk(
 
       return response?.data;
     } catch (error) {
-      toast.error(`${error?.response?.data?.message} username , email must unique`, {});
+      toast.error(`backend response fail`, {});
     }
   },
 );

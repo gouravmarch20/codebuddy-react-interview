@@ -73,7 +73,6 @@ export const FormThree = () => {
           if (res?.payload) {
             navigate("/posts");
           } else {
-            toast.error(`you skip few step backend msg`, {});
           }
         });
       }

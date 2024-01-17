@@ -7,8 +7,8 @@
   background-image: url(/src/assets/background.jpeg);
   background-size: cover;
   backdrop-filter: blur(5px);
-  width: 100vw;
-  min-height: 100vh;
+  max-width: 100vw;
+  height: 100vh;
 }
 .my-bg-slate {
   background-color: rgb(255, 255, 255);
