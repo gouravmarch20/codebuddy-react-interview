@@ -36,7 +36,6 @@ export const isValidEmail = (email) => {
 };
 
 export const isValidFirstName = (str) => {
-  console.log(99, str);
   if (str.length >= 2 && str.length <= 50) {
     return true;
   }

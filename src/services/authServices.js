@@ -1,5 +1,5 @@
 import axios from "axios"
-const API_URL = "https://supplyn.up.railway.app/api/auth"
+const API_URL = ""
 
 export const signupApi = (username, email, password) => {
   return axios.post(`${API_URL}/signup`, {

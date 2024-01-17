@@ -4,6 +4,8 @@ import { FormTwo } from "../components/form/FormTwo";
 import { FormThree } from "../components/form/FormThree";
 import { FormOne } from "../components/form/FormOne";
 import { useMultiStepForm } from "../hooks/useMultiStepForm";
+import { Link } from "react-router-dom";
+import { Icon } from "@iconify/react";
 
 function SetOne() {
   const { steps, currentStepIndex, step, isFirstStep, goTo, back, next } = useMultiStepForm([
@@ -14,9 +16,14 @@ function SetOne() {
 
   return (
     <>
-      <h2 className="mb-2 mt-0 text-center text-4xl font-normal leading-normal text-pink-600">
+      <h2 className="mb-2 mt-0 text-center text-4xl font-bold text-pink-600">
         Set One{" "}
       </h2>
+      <Link to="/" className="mb-4 flex items-center text-blue-600 hover:underline">
+        <Icon icon="mdi:arrow-left" className="mr-2" />
+        Back to Home
+      </Link>
+
       <div className="relative m-4 mx-auto	max-w-max rounded-md border border-sky-500 p-8">
         <div className="flex items-center justify-center gap-6 p-1">
           <p
