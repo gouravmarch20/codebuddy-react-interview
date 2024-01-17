@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 export const SetThree = () => {
   return (
-    <div className="body-setThree">
+    <div className="body-setThree pb-16">
       <Navbar />
       <Link to="/" className="mb-4 flex items-center text-blue-600 hover:underline">
         <Icon icon="mdi:arrow-left" className="mr-2" />
@@ -16,7 +16,7 @@ export const SetThree = () => {
       </Link>
       <Search />
       <CarouselVideo />
-      <div className=" mt-[22%] ">
+      <div className=" mt-[22%] mb-2">
         <CarouselVideos />
       </div>
     </div>
