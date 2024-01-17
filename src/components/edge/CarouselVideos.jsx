@@ -28,7 +28,6 @@ export const CarouselVideos = () => {
       <Carousel
         responsive={responsive}
         itemClass="mt-2 "
-
         customRightArrow={
           <CaretRightOutlined className="max-w-4 text-primary-400 absolute right-4 top-1/2 cursor-pointer bg-red-500 text-xl " />
         }
@@ -36,12 +35,12 @@ export const CarouselVideos = () => {
           <CaretLeftOutlined className="max-w-4 text-primary-400 absolute left-4 top-1/2 cursor-pointer bg-red-500 text-xl " />
         }
       >
-
         {data?.map((d) => (
           <>
-            <div className="flex flex-col justify-center rounded-md bg-gray-400 mx-4  " key={
-                d?.key
-            }>
+            <div
+              className="mx-4 flex flex-col justify-center rounded-md bg-gray-400  "
+              key={d?.key}
+            >
               <p className="text-center">{d.title}</p>
               <div className="flex  justify-center">
                 <img src={d?.imgUrl} className="h-[150px] w-[200px]" loading="lazy" />

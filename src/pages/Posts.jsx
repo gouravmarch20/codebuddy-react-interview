@@ -1,7 +1,21 @@
 import { Icon } from "@iconify/react";
 import { Link } from "react-router-dom";
-
+import { useEffect, useState } from "react";
+import { getPost } from "../redux/asyncThunks";
+import { useDispatch } from "react-redux";
+import Loader from "../components/loader/Loader";
 const Posts = () => {
+  const dispatch = useDispatch();
+  const [userData, setUserData] = useState([]);
+
+  useEffect(() => {
+    dispatch(getPost())
+      .then((res) => {
+        setUserData(res?.payload?.data?.data);
+      })
+      .catch(() => {});
+  }, []);
+
   return (
     <div className="rounded-lg bg-gray-50 p-7 text-gray-900 shadow-lg">
       <h1 className="mb-7 text-4xl font-bold">Posts</h1>
@@ -11,38 +25,39 @@ const Posts = () => {
       </Link>
 
       <div className="grid grid-cols-1 gap-4  md:grid-cols-2 lg:grid-cols-3">
-        <div className="rounded-lg bg-white p-7 shadow-lg">
-          <h2 className="text-2xl font-bold">Post 1</h2>
-          <p className="text-gray-700">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo voluptatem, quibusdam,
-            quos, voluptatum voluptas quod quas voluptates quia doloribus nobis voluptatibus. Quam,
-            voluptate voluptatum. Quod, voluptate? Quisquam, voluptate voluptatum.
-          </p>
-        </div>
-        <div className="rounded-lg bg-white p-7 shadow-lg">
-          <h2 className="text-2xl font-bold">Post 2</h2>
-          <p className="text-gray-700">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo voluptatem, quibusdam,
-            quos, voluptatum voluptas quod quas voluptates quia doloribus nobis voluptatibus. Quam,
-            voluptate voluptatum. Quod, voluptate? Quisquam, voluptate voluptatum.
-          </p>
-        </div>
-        <div className="rounded-lg bg-white p-7 shadow-lg">
-          <h2 className="text-2xl font-bold">Post 3</h2>
-          <p className="text-gray-700">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo voluptatem, quibusdam,
-            quos, voluptatum voluptas quod quas voluptates quia doloribus nobis voluptatibus. Quam,
-            voluptate voluptatum. Quod, voluptate? Quisquam, voluptate voluptatum.
-          </p>
-        </div>
-        <div className="rounded-lg bg-white p-7 shadow-lg">
-          <h2 className="text-2xl font-bold">Post 4</h2>
-          <p className="text-gray-700">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo voluptatem, quibusdam,
-            quos, voluptatum voluptas quod quas voluptates quia doloribus nobis voluptatibus. Quam,
-            voluptate voluptatum. Quod, voluptate? Quisquam, voluptate voluptatum.
-          </p>
-        </div>
+        {userData?.length > 0 ? (
+          <>
+            {userData?.map((user) => (
+              <div className="rounded-lg bg-white p-7 shadow-lg" key={user?.id}>
+                <div className="flex justify-center">
+                  <img
+                    src={user?.image}
+                    alt="Avatar"
+                    className="h-[10%] w-[60%] rounded-md  object-cover	 "
+                    loading="lazy"
+                  />
+                </div>
+                <div className="mt-2 flex  items-center">
+                  <span>
+                    <img
+                      src={user?.avatar}
+                      alt=""
+                      className="h-[20px] w-[20px] rounded-md	 object-cover"
+                    />
+                  </span>
+                  <h2 className="ml-4 text-xl font-bold">
+                    {" "}
+                    {user?.firstName} &nbsp; {user?.lastName}
+                  </h2>
+                </div>
+
+                <p className="text-gray-700">{user?.writeup}</p>
+              </div>
+            ))}
+          </>
+        ) : (
+          <Loader />
+        )}
       </div>
     </div>
   );

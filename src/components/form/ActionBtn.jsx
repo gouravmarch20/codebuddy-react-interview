@@ -1,6 +1,6 @@
 import React from "react";
 
-export const ActionBtn = ({ isLastStep, isFirstStep, handleOnSubmit,handleBack }) => {
+export const ActionBtn = ({ isLastStep, isFirstStep, handleOnSubmit, handleBack }) => {
   return (
     <div>
       <div className="mt-8  flex justify-end gap-2 md:gap-4	">
@@ -10,9 +10,7 @@ export const ActionBtn = ({ isLastStep, isFirstStep, handleOnSubmit,handleBack }
             onClick={(e) => {
               e.preventDefault();
               handleBack();
-
             }}
-            
             disabled={isFirstStep}
             className={`rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700 ${
               isFirstStep ? "cursor-not-allowed opacity-50" : ""
@@ -22,7 +20,6 @@ export const ActionBtn = ({ isLastStep, isFirstStep, handleOnSubmit,handleBack }
           </button>
         }
 
-        
         <button
           type="submit"
           className={`rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700`}
@@ -54,6 +51,7 @@ export const ActionBtn = ({ isLastStep, isFirstStep, handleOnSubmit,handleBack }
             className={`mt-4 rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700 ${"s"}`}
             onClick={(e) => {
               e.preventDefault();
+
               handleOnSubmit("SUBMIT");
             }}
           >

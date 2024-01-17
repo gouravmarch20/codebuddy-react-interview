@@ -1,40 +1,38 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dynamic Dropdown</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dynamic Dropdown</title>
+  </head>
+  <body>
+    <label for="dropdown">Select an option:</label>
+    <select id="dropdown">
+      <option value="">-- Select --</option>
+    </select>
 
-  <label for="dropdown">Select an option:</label>
-  <select id="dropdown">
-    <option value="">-- Select --</option>
-  </select>
+    <script>
+      // Your data source (replace this with your actual data)
+      var optionsData = ["Option 1", "Option 2", "Option 3"];
 
-  <script>
-    // Your data source (replace this with your actual data)
-    var optionsData = ["Option 1", "Option 2", "Option 3"];
+      // Function to populate the dropdown
+      function populateDropdown() {
+        var dropdown = document.getElementById("dropdown");
 
-    // Function to populate the dropdown
-    function populateDropdown() {
-      var dropdown = document.getElementById("dropdown");
+        // Clear existing options
+        dropdown.innerHTML = "<option value=''>-- Select --</option>";
 
-      // Clear existing options
-      dropdown.innerHTML = "<option value=''>-- Select --</option>";
+        // Add new options from the data source
+        optionsData.forEach(function (option) {
+          var optionElement = document.createElement("option");
+          optionElement.value = option;
+          optionElement.text = option;
+          dropdown.appendChild(optionElement);
+        });
+      }
 
-      // Add new options from the data source
-      optionsData.forEach(function (option) {
-        var optionElement = document.createElement("option");
-        optionElement.value = option;
-        optionElement.text = option;
-        dropdown.appendChild(optionElement);
-      });
-    }
-
-    // Call the function to populate the dropdown
-    populateDropdown();
-  </script>
-
-</body>
+      // Call the function to populate the dropdown
+      populateDropdown();
+    </script>
+  </body>
 </html>

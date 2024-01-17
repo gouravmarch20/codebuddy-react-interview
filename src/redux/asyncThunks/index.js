@@ -1,1 +1,1 @@
-export { signIn  , signUp  } from './userThunk.js'
+export { getPost, signUp } from "./userThunk.js";

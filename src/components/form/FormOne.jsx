@@ -30,7 +30,10 @@ export const FormOne = ({ data }) => {
       return false;
     } else if (!isValidPassword(password)) {
       setOnFormSubmit(true);
-      toast.error(`Password Must contain minimum 2 capital letters, 2 small letter, 2 numbers and 2 special characters.`, {});
+      toast.error(
+        `Password Must contain minimum 2 capital letters, 2 small letter, 2 numbers and 2 special characters.`,
+        {},
+      );
       return false;
     } else {
       setOnFormSubmit(false);
@@ -49,13 +52,13 @@ export const FormOne = ({ data }) => {
         toast.success(`data save`, {});
         return;
       } else if (goto === "NEXT") {
-        next()
+        next();
         toast.success(`STEP 1 - DONE  `, {});
         return;
       }
     }
   };
-  const handleBack = ()=> back()
+  const handleBack = () => back();
 
   return (
     <FormWrapper title="User Details">

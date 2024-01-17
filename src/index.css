@@ -3,30 +3,29 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-.body-setThree{
-    background-image:  url(/src/assets/background.jpeg);
-    background-size: cover;
-    backdrop-filter: blur(5px); 
-    width: 100vw;
-    min-height: 100vh;
+.body-setThree {
+  background-image: url(/src/assets/background.jpeg);
+  background-size: cover;
+  backdrop-filter: blur(5px);
+  width: 100vw;
+  min-height: 100vh;
 }
-.my-bg-slate{
-    background-color: rgb(255, 255, 255);
+.my-bg-slate {
+  background-color: rgb(255, 255, 255);
 }
-.my-bing-btn{
-    border-image: linear-gradient(81.62deg,#2870ea 8.72%,#1b4aef 85.01%);
-    padding: 9px 20px;
-    background: linear-gradient(81.62deg,#2870ea 8.72%,#1b4aef 85.01%);
-    border-radius: 20px;
-    text-decoration: none;
-    min-width: 104px;
-    display: inline-flex;
-    justify-content: center;
-    box-sizing: border-box;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 22px;
-    color: white;
-
+.my-bing-btn {
+  border-image: linear-gradient(81.62deg, #2870ea 8.72%, #1b4aef 85.01%);
+  padding: 9px 20px;
+  background: linear-gradient(81.62deg, #2870ea 8.72%, #1b4aef 85.01%);
+  border-radius: 20px;
+  text-decoration: none;
+  min-width: 104px;
+  display: inline-flex;
+  justify-content: center;
+  box-sizing: border-box;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 22px;
+  color: white;
 }

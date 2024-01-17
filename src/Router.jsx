@@ -2,8 +2,8 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Home from "./pages/Home";
 import Posts from "./pages/Posts";
 import Root from "./pages/Root";
-import SetOne from './pages/SetOne'
-import {SetThree} from './pages/SetThree'
+import SetOne from "./pages/SetOne";
+import { SetThree } from "./pages/SetThree";
 
 const router = createBrowserRouter([
   {

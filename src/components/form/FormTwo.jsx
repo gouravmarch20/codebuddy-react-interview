@@ -51,13 +51,13 @@ export const FormTwo = ({}) => {
         toast.success(`data save`, {});
         return;
       } else if (goto === "NEXT") {
-        next()
+        next();
         toast.success(`STEP 2 - DONE  `, {});
         return;
       }
     }
   };
-  const handleBack = ()=> back()
+  const handleBack = () => back();
 
   return (
     <>
@@ -103,7 +103,6 @@ export const FormTwo = ({}) => {
           isFirstStep={isFirstStep}
           isLastStep={isLastStep}
           handleBack={handleBack}
-
         />
       </FormWrapper>
     </>

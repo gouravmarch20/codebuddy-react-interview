@@ -30,14 +30,20 @@ export const CarouselVideo = () => {
   };
   return (
     <>
-      <div className="my-bg-slate 	opacity-1	mx-auto  flex flex-col  w-[50%] items-center justify-center  rounded-md">
+      <div className="my-bg-slate 	opacity-1	mx-auto  flex w-[50%]  flex-col items-center justify-center  rounded-md">
         <div className="flex items-center justify-center">
           <div className="mr-4 cursor-pointer " onClick={handleLeftClick}>
             <CaretLeftOutlined />
           </div>
 
           {data?.map((currImg, i) => (
-            <p className={`h-[100px] w-[100px] 	${i == activeImg ? "flex items-center justify-center text-sky-800 uppercase	" : "hidden"}	`}>
+            <p
+              className={`h-[100px] w-[100px] 	${
+                i == activeImg
+                  ? "flex items-center justify-center uppercase text-sky-800	"
+                  : "hidden"
+              }	`}
+            >
               {currImg?.title}
             </p>
           ))}
@@ -46,13 +52,9 @@ export const CarouselVideo = () => {
           </div>
         </div>
 
-
-
         <div className="mb-4">
           <button className="my-bing-btn">Ask to bing</button>
         </div>
-
-
       </div>
     </>
   );

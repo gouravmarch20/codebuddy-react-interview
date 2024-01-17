@@ -16,9 +16,7 @@ function SetOne() {
 
   return (
     <>
-      <h2 className="mb-2 mt-0 text-center text-4xl font-bold text-pink-600">
-        Set One{" "}
-      </h2>
+      <h2 className="mb-2 mt-0 text-center text-4xl font-bold text-pink-600">Set One </h2>
       <Link to="/" className="mb-4 flex items-center text-blue-600 hover:underline">
         <Icon icon="mdi:arrow-left" className="mr-2" />
         Back to Home

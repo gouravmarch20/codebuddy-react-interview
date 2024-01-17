@@ -18,18 +18,15 @@ const userSlice = createSlice({
   name: "userDetails",
   initialState,
   reducers: {
- 
     nextStep: (state, action) => {
-      state.currentStepIndex =  action.payload;
+      state.currentStepIndex = action.payload;
     },
     updateFields(state, action) {
       const fields = action.payload;
       state.user = { ...state.user, ...fields };
     },
   },
-  extraReducers: {
- 
-  },
+  extraReducers: {},
 });
 export const { logOut, nextStep, updateFields } = userSlice.actions;
 

@@ -1,1 +1,1 @@
-export { userReducer } from './userSlice'
+export { userReducer } from "./userSlice";

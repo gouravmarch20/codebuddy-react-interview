@@ -1,22 +1,23 @@
 import { useState } from "react";
 import { FormWrapper } from "./FormWrapper";
 import { ActionBtn } from "./ActionBtn";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { FormTwo } from "./FormTwo";
 import { FormOne } from "./FormOne";
 import { useMultiStepForm } from "../../hooks/useMultiStepForm";
 import { toast } from "react-toastify";
 import { isValidPhoneNumber } from "../../helper";
-import {  useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { signUp } from "../../redux/asyncThunks";
 
 export const FormThree = () => {
-    const navigate = useNavigate()
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const {
     isFirstStep,
     isLastStep,
     back,
-    next,
     handleOnSubmit: handleSubmit,
   } = useMultiStepForm([<FormOne />, <FormTwo />, <FormThree />]);
   const user = useSelector((state) => state?.userDetails?.user);
@@ -27,8 +28,6 @@ export const FormThree = () => {
   const [onFormSubmit, setOnFormSubmit] = useState(false);
 
   const isValidData = () => {
-
-    
     if (!countryCode) {
       setOnFormSubmit(true);
       toast.error(`not valid countryCode`, {});
@@ -46,23 +45,37 @@ export const FormThree = () => {
       return true;
     }
   };
-  const handleBack = ()=> back()
-
+  const handleBack = () => back();
 
   const handleOnSubmit = (goto) => {
     if (isValidData()) {
       const data = {
         countryCode: countryCode,
         phoneNumber: phoneNumber,
-        isAgreeTC : isAgreeTC
+        isAgreeTC: isAgreeTC,
       };
 
       handleSubmit(data);
       if (goto === "SAVE") {
         toast.success(`data save`, {});
         return;
-      }else if(goto === "SUBMIT"){
-        navigate("/posts")
+      } else if (goto === "SUBMIT") {
+        const formData = {
+          emailId: user?.emailId,
+          password: user?.password,
+          firstName: user.firstName,
+          lastName: user.lastName,
+          address: user?.address,
+          countryCode: countryCode,
+          phoneNumber: phoneNumber,
+        };
+        dispatch(signUp(formData)).then((res) => {
+          if (res?.payload) {
+            navigate("/posts");
+          } else {
+            toast.error(`you skip few step backend msg`, {});
+          }
+        });
       }
     }
   };

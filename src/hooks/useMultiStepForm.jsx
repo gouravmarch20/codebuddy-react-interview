@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { updateFields ,nextStep } from "../redux/slices/userSlice";
+import { updateFields, nextStep } from "../redux/slices/userSlice";
 
 export const useMultiStepForm = (steps) => {
   const currentStepIndex = useSelector((state) => state?.userDetails?.currentStepIndex);

@@ -25,8 +25,7 @@ const Home = () => {
           Set Three
         </h1>
 
-        <h2 className="mb-3 text-2xl">Recreate Bing Homepage UI using React
-!</h2>
+        <h2 className="mb-3 text-2xl">Recreate Bing Homepage UI using React !</h2>
 
         <Link to="/set-three" className="flex items-center text-blue-600 hover:underline">
           View Live

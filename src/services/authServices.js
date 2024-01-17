@@ -1,13 +1,25 @@
-import axios from "axios"
-const API_URL = ""
+import axios from "axios";
+const API_URL = "https://codebuddy.review";
 
-export const signupApi = (username, email, password) => {
-  return axios.post(`${API_URL}/signup`, {
-    username,
-    email,
+export const signupApi = (
+  emailId,
+  password,
+  firstName,
+  lastName,
+  address,
+  countryCode,
+  phoneNumber,
+) => {
+  return axios.post(`${API_URL}/submit`, {
+    emailId,
     password,
-  })
-}
-export const signinApi = (email, password) => {
-  return axios.post(`${API_URL}/signin`, { email, password })
-}
+    firstName,
+    lastName,
+    address,
+    countryCode,
+    phoneNumber,
+  });
+};
+export const signinApi = () => {
+  return axios.get(`${API_URL}/posts`, {});
+};
